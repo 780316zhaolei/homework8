@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>酷我音乐</title>
+    <style>
+    *{
+    padding: 0;
+    margin: 0;
+    }
+    @keyframes animation1{
+        100%{
+            transform: rotate(360deg);
+        }
+    }
+    li{
+        list-style: none;
+    }
+    a{
+        text-decoration: none;
+    }
+    .header{
+        display: flex;
+        align-items: center;
+        background-color: black;
+        width: 100%;
+        height: 60px;
+    }
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 80%;
+        height: 60px;
+    }
+    .container a:hover{
+        color: #ffe443;
+        opacity: 1;
+    }
+    .more{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        opacity: 0.8;
+    }
+    .more div{
+        background-image: url(images/2.png);
+        background-position: -225px -23px;
+        width: 20px;
+        height: 20px;
+        opacity: 0.8;
+        display: inline-flex;
+    }
+    .more a{
+        font-size: 15px;
+    }
+    .more li{
+        display:inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    .container a{
+        color: white;
+        font-size: 18px;
+    }
+    .container li{
+        display: list-item;
+        margin-left: 10px;
+    }
+    .search{
+        width: 13%;
+    }
+    .search span{
+        color: white;
+        font-size: 8px;
+        opacity: 0.8;
+        float: left;
+        position: absolute;
+        top: 3%;
+        right: 15%;
+    }
+    .middle{
+        margin: 0 auto;
+        width: 100%;
+    }
+    .message{
+        width: 50%;
+        margin: 0 auto;
+    }
+    .name{
+        margin: 0 atuo;
+        text-align: center;
+        padding-top: 40px;
+        float: left;
+        position: absolute;
+        left: 20%;
+    }
+    .name p{
+        font-size: 30px;
+        line-height: 50px;
+    }
+    .name_style{
+        color: black;
+        font-size: 15px;
+        line-height: 30px;
+    }
+    .name_style span{
+        color: #ffe443;
+    }
+    .name_style span:nth-child(1){
+        color: gray;
+    }
+    .name_style span:nth-child(3){
+        color: gray;
+    }
+    .word{
+        overflow: auto;
+        text-align: center;
+        margin: 0 auto;
+        line-height: 30px;
+        font-size: 15px;
+        height: 600px;
+        width: 40%;
+        border-top: 1px rgb(184, 183, 183) solid;
+        float: left;
+        position: absolute;
+        left: 13%;
+        top: 30%;
+    }
+    .music{
+        width: 50%;
+        margin: 0 auto;
+        
+    }
+    .music_img{
+        float: right;
+        position: absolute;
+        right: 10%;
+        width: 410px;
+        height: 410px;
+        text-align: center;
+        padding-top: 5px;
+    }
+
+    .music_img img{
+        border-radius: 50%; 
+        width: 400px;
+        height: 400px;
+        animation-name: animation1;
+        animation-duration: 8s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        border: 1px rgb(228, 225, 225) solid;
+    }
+    #Mycanvas{
+        position: absolute;
+        right: 0;
+    }
+    .play{
+        width: 40px;
+        height: 40px;
+        float: right;
+        position: absolute;
+        right: 35%;
+        margin-top: 450px;
+    }
+    #play_btn{
+        width: 40px;
+        height: 40px;
+        background-position: -137px -153px;
+        background-image: url(images/2.png);
+        border: none;
+        border-radius: 50%;
+        outline: none;
+    }
+    #probar{
+        float:left;
+        position: absolute;
+        left: 65%;
+        margin-top: 468px;
+        width: 300px;
+        height: 4px;
+        display: inline;
+        background-color: rgb(228, 225, 225); 
+    }
+    #bufbar{
+        width: 100%;
+        height: 4px;
+    }
+    #bar{
+        background:#ffe443;
+        height: 4px;
+        display: block;
+    }
+    #sche_btn{
+        width: 10px;
+        height: 10px;
+        background: url(images/2.png) 0 -128px;
+        position: absolute;
+        top: -3px;
+        color: white;
+    }
+    .play_right{
+        display: block;
+        float: right;
+        position: absolute;
+        right: 12%;
+        margin-top: 460px;
+    }
+    #paly_time{
+        font-size: 15px;
+    }
+    #ctrl_btn{
+        width: 20px;
+        height: 20px;
+        background-image: url(images/2.png);
+        background-position:-263px -127px ;
+        float: right;
+        position: relative;
+        left: 30px;
+        bottom: 20px;
+        outline: none;
+        border: none;
+        border-radius: 50%;
+    }
+    .mine{
+        width: 300px;
+        height: 200px;
+        float: right;
+        position: absolute;
+        right: 15%;
+        margin-top: 500px;
+    }
+    .down{
+        background-image: url(images/8.jpg);
+        background-position: 0 -48px;
+        width: 200px;
+        height: 40px;
+        outline: none;
+        margin-top: 30px;
+        margin-left: 50px;
+        text-align: center;
+        color: black;
+        font-size: 17px;
+        line-height: 42px;
+        border: none;
+    }
+    .down div{
+        width: 20px;
+        height: 20px;
+        background-image: url(images/2.png);
+        background-position: -242px -113px;
+        float: left;
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+    .myimg{
+        width: 40px;
+        height:40px;
+        border-radius: 50%;
+        margin-left: 10px;
+        margin-top: 40px;
+    }
+    .mydiv{
+        width: 200px;
+        height: 50px;
+        background-color: rgb(238, 237, 237);
+        border-radius:20%;
+        margin-left:70px;
+        margin-top: -45px;
+        font-size: 8px;
+        text-align: center;
+        line-height: 25px;
+    }
+    .mydiv div{
+        width: 20px;
+        height: 20px;
+        background-color: rgb(238, 237, 237);
+        transform: rotate(45deg);
+        float: left;
+        position: relative;
+        left: -4px;
+        top: 15px;
+    }
+    .mydiv p:nth-child(3){
+        color: steelblue;
+    }
+    .mydiv span{
+        color: blue;
+    }
+    .bottom{
+        width: 800px;
+        margin: 0 auto;
+        margin-top: 850px;
+        font-size: 20px;
+        line-height: 40px;
+        color: gray;
+    }
+    #comment_count{
+        font-size: 15px;
+    }
+    #comment{
+        border-top: 1px solid rgb(238, 237, 237);
+        width: 100%;
+        height: 200px;
+    }
+    #comment img{
+        width: 60px;
+        height: 60px;
+        margin-left: 20px;
+    }
+    #commentword{
+        width: 650px;
+        height: 100px;
+        outline: none;
+        resize: none;
+        margin-top: 30px;
+        margin-left: 20px;
+        border: 1px solid rgb(228, 226, 226);
+    }
+    #count{
+        font-size: 10px;
+        color: gray;
+        margin-left: 550px;
+        width: 80px;
+        display: block;
+    }
+    #comment_btn{
+        width: 60px;
+        height: 30px;
+        color: white;
+        background-color: #ffe443;
+        margin-left: 700px;
+        margin-top: -35px;
+        display: block;
+        border: none;
+        outline: none;
+    }
+    #mycomment{
+        width: 100%;
+        height: 150px;
+        border-bottom: 1px solid rgb(228, 226, 226);
+        margin-top: 10px;
+    }
+    .mycomment{
+        width: 100%;
+        height: 150px;
+        border-bottom: 1px solid rgb(228, 226, 226);
+        margin-top: 10px;
+    }
+    #mycomment img{
+        width: 60px;
+        height: 60px;
+        margin-left:20px;
+        margin-top: 50px;
+    }
+    #mycomments{
+        width: 650px;
+        height: 100px;
+        float: right;
+        position: relative;
+        right: 30px;
+        top: 30px;
+    }
+    #mycomments span:nth-child(1){
+        color: #ffe443;
+        font-size: 15px;
+    }
+    #mycomments span:nth-child(2){
+        color: gray;
+        font-size: 15px;
+        float: right;
+    }
+    #mycomments p{
+        color: black;
+        font-size: 15px;
+        line-height: 18px;
+    }
+    #mycomments span:nth-child(4){
+        color: gray;
+        font-size: 10px;
+        float:left;
+    }
+    #mycomments span:nth-child(5){
+        color: gray;
+        font-size: 15px;
+        float:right;
+    }
+    .page{
+        width: 100%;
+        text-align: center;
+    }
+    .page button{
+        width: 30px;
+        height: 30px;
+        color: black;
+        background: rgb(228, 226, 226);
+        outline: none;
+        border: none;
+        border-radius: 50%;
+    }
+    .page button:nth-child(2){
+        background: #ffe443;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <img src="images/4.jpg">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">榜单</a></li>
+            <li><a href="#">歌手</a></li>
+            <li><a href="#">下载酷我客户端</a></li>
+            <li>
+                <ul class="more">
+                    <li><div></div><a href="#">美女秀</a></li>
+                    <li><div></div><a href="#">酷我耳机</a></li>
+                    <li><div></div><a href="#">vip会员</a></li>
+                    <li><div></div><a href="#">i听</a></li>
+                </ul>
+            </li>
+            <li><a href="#">更多服务</a></li>
+            <li><a href="#">登录</a></li>
+            <li><a href="#">^</a></li>
+        </div>
+        <div class="search">
+            <img src="images/5.png">
+            <span>找到好音乐</span>
+        </div>
+    </div>
+    <div class="middle">
+        <div class="message">
+            <div class="name">
+                <p>喜羊羊</p>
+                <li class="name_style"><span>专辑： </span><span> 儿歌大全 </span><span> 歌手： </span><span> 华语群星 </span> 分享 <img src="images/7.jpg"><span> 评论 </span></li>
+                <li class="name_style">上传时间：2015-10-22 歌曲来源： 民大相思湖网球社</li>
+            </div>
+            <div class="word">
+                <p>别看我只是一只羊</p>
+                <p>喜羊羊美羊羊懒羊羊沸羊羊</p>
+                <p>慢羊羊软绵绵红太狼灰太狼</p>
+                <p>别看我只是一只羊</p>
+                <p>绿草因为我变的更香</p>
+                <p>天空因为我变的更蓝</p>
+                <p>白云因为我变的柔软</p>
+                <p>别看我只是一只羊</p>
+                <p>羊儿的聪明难以想像</p>
+                <p>天再高心情一样奔放</p>
+                <p>每天都追赶太阳</p>
+                <p>有什么难题去牵绊我都不会去心伤</p>
+                <p>有什么危险在我面前也不会去慌乱</p>
+                <p>就算有狼群把我追捕也当做游戏一场</p>
+                <p>在什么时间都爱开心笑容都会飞翔</p>
+                <p>就算会摔倒站得起来永远不会沮丧</p>
+                <p>在所有天气拥有叫人大笑的力量</p>
+                <p>虽然我只是羊</p>
+                <p>喜羊羊美羊羊懒羊羊沸羊羊</p>
+                <p>慢羊羊软绵绵红太狼灰太狼</p>
+                <p>别看我只是一只羊</p>
+                <p>绿草因为我变的更香</p>
+                <p>天空因为我变的更蓝</p>
+                <p>白云因为我变的柔软</p>
+                <p>别看我只是一只羊</p>
+                <p>羊儿的聪明难以想像</p>
+                <p>天再高心情一样奔放</p>
+                <p>每天都追赶太阳</p>
+                <p>有什么难题去牵绊我都不会去心伤</p>
+                <p>有什么危险在我面前也不会去慌乱</p>
+                <p>就算有狼群把我追捕也当做游戏一场</p>
+                <p>在什么时间都爱开心笑容都会飞翔</p>
+                <p>就算会摔倒站得起来永远不会沮丧</p>
+                <p>在所有天气拥有叫人大笑的力量</p>
+                <p>虽然我只是羊</p>
+                <p>有什么难题去牵绊我都不会去心伤</p>
+                <p>有什么危险在我面前也不会去慌乱</p>
+                <p>就算有狼群把我追捕也当做游戏一场</p>
+                <p>在什么时间都爱开心笑容都会飞翔</p>
+                <p>就算会摔倒站得起来永远不会沮丧</p>
+                <p>在所有天气拥有叫人大笑的力量</p>
+                <p>虽然我只是羊</p>
+            </div>
+        </div>
+        <div class="music">
+            <audio autoplay="autoplay" id="mymusic">
+                <source src="1.mp3" type="audio/mp3">
+            </audio>
+            <div class="music_img">
+                <img src="images/1.jpg">
+                <canvas id="Mycanvas" width="410px" height="410px"></canvas>
+            </div>
+            <div class="play">
+                <button id="play_btn"></button>
+            </div>
+            <div id="probar">
+                <div id="bufbar">
+                    <div id="bar" style="width: 0;"></div>
+                    <a id="sche_btn" href="#" style="left: 0;"></a>
+                </div>
+            </div>
+            <div class="play_right">
+                <p id="paly_time">00:00</p>
+                <button id="ctrl_btn"></button>
+            </div>
+            <div class="mine">
+                <button class="down"><div></div>免费下载这首歌</button>
+                <img src="images/9.jpg" class="myimg">
+                <div class="mydiv">
+                    <div></div>
+                    <p>郭子仪——H5班</p>
+                    <p>喜羊羊与灰太狼   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>去现场></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <p>评论 &nbsp;&nbsp;&nbsp; <span id="comment_count">1条评论</span></p>
+        <div id="comment">
+            <img src="images/9.jpg">
+            <textarea id="commentword" cols="7" rows="50" placeholder="分享你的音乐见闻"></textarea>
+            <div id="count">已输入0个字</div>
+            <button id="comment_btn">评论</button>
+        </div>
+        <p>精彩评论</p>
+        <div style="width: 100%; height: 1px; background-color: rgb(228, 226, 226);"></div>
+        <div id="comments">
+            <div id="mycomment" class="mycomment">
+                <img src="images/9.jpg">
+                <div id="mycomments">
+                    <span>郭子仪</span>
+                    <span>分享</span>
+                    <p>Too</p>
+                    <span id="times">2021-6-11 17:00</span>
+                    <span>删除 163赞 回复</span>
+                </div>
+            </div>
+        </div>
+        <div class="page">
+            <button><</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>....
+            <button>17</button>
+            <button>></button>
+        </div>
+    </div>
+    <script>
+        //music
+        var audio = document.getElementById('mymusic');
+        var play = document.getElementById('play_btn');
+        var playtime = document.getElementById('paly_time');
+        var mute = document.getElementById('ctrl_btn');
+        var bar = document.getElementById('bufBar');
+        var pbar = document.getElementById('bar');
+        var pbtn = document.getElementById('sche_btn');
+
+        audio.autoplay =true;
+            audio.load();
+            
+
+        mute.onclick=function(){
+            audio.muted==true?audio.muted=false:audio.muted=true;
+        }
+
+        function process(){
+            var now= (audio.currentTime/audio.duration)*300+"px";
+            pbtn.style.left=now;
+            pbar.style.width=now;
+            playtime.innerHTML = mtime(audio.currentTime);
+        }
+
+        function start(){
+            setInterval("process()",1000);
+        }
+
+        function mtime(n){
+            var a = parseInt(n/60);
+            var b = parseInt(n%60);
+            a=a >= 10 ? a :"0"+a;
+            b=b >= 10 ? b :"0"+b;
+            return a+":"+b;
+        }
+
+        play.onclick=function(){
+            if(audio.paused==true){
+            audio.play();
+            play.style.backgroundPosition="-138px -194px";
+            start();
+            }
+            else{
+            audio.pause();
+            play.style.backgroundPosition="-137px -113px";
+            }
+        }
+
+        //canvas
+        var mycanvas = document.getElementById("Mycanvas");
+        var ctx = mycanvas.getContext("2d");
+        ctx.beginPath();
+        ctx.translate(205,205);
+        ctx.arc(0,-5,10,0,2*Math.PI);
+        ctx.fillStyle='white';
+        ctx.strokeStyle='white';
+        ctx.fill();
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(0,-5,30,0,2*Math.PI);
+        ctx.strokeStyle='rgb(228, 225, 225)';
+        ctx.stroke();
+
+        //comment
+        var comment_count =document.getElementById('comment_count');
+        var count =document.getElementById('count');
+        var comment_btn = document.getElementById('comment_btn');
+        var commentword = document.getElementById('commentword');
+        var times = document.getElementById('times');
+        var comments = document.getElementById('comments');
+
+        var n;
+        n=0;
+        var obj={};
+        var storage=window.localStorage;
+
+
+        function wordnum (){
+            count.innerHTML ='已输入'+commentword.value.length+'个字';
+        }
+        setInterval("wordnum()");
+
+        comment_btn.onclick = function(){
+            var date = new Date();
+            var year=date.getFullYear();
+            var month = date.getMonth()+1;
+            var day = date.getDate();
+            var hour =date.getHours();
+            var minute =date.getMinutes();
+            var second =date.getSeconds();
+            var ddiv = document.createElement('div');
+            comments.insertBefore(ddiv,null);
+            ddiv.id="mycomment";
+            n++;
+            ddiv.innerHTML='<img src="images/9.jpg"><div id="mycomments"><span>郭子仪</span><span>分享</span><p>'+commentword.value+'</p><span id="times">'+year+'-'+month+'-'+day+' '+hour+':'+minute+':'+second+'</span><span>删除 163赞 回复</span></div>';
+            
+            //Json
+            obj.word=commentword.value;
+            obj.year=year;
+            obj.month=month;
+            obj.day=day;
+            obj.hour=hour;
+            obj.minute=minute;
+            obj.second=second;
+            var objstr=JSON.stringify(obj);
+            storage.setItem("message"+n,objstr);
+            commentword.value='';
+            comment_count.innerHTML= n+1 +'条评论';
+        }
+        window.onload = function(){
+            if(localStorage.length!=0){
+                var a=localStorage.length;
+                n=a;
+                comment_count.innerHTML= a+1 +'条评论';
+                for(var i=0;i<a;i++){
+                    var j=i+1;
+                    var name="message"+j;
+                    var objstr = storage.getItem(name);
+                    var obj1 =JSON.parse(objstr);
+                    var ddiv = document.createElement('div');
+                    comments.insertBefore(ddiv,null);
+                    ddiv.id="mycomment";
+                    ddiv.innerHTML='<img src="images/9.jpg"><div id="mycomments"><span>郭子仪</span><span>分享</span><p>'+ obj1.word+'</p><span id="times">'+obj1.year+'-'+obj1.month+'-'+obj1.day+' '+obj1.hour+':'+obj1.minute+':'+obj1.second+'</span><span>删除 163赞 回复</span></div>';
+                }
+                
+            }
+        }
+    </script>
+</body>
+</html>
